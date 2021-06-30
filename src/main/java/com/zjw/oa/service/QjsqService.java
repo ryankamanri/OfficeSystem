@@ -9,8 +9,8 @@ import java.util.List;
 /**
  * Description 请假
  *
- * @author dddz97
- * @date 2019-03-21 10:47:26
+ * @author dqy
+ * @date 2021-06-30
  */
 public interface QjsqService {
 

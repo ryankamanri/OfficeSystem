@@ -15,8 +15,8 @@ import java.util.List;
 /**
  * Description
  *
- * @author dddz97
- * @date 2019-03-21 10:47:40
+ * @author dqy
+ * @date 2021-06-30
  */
 @Service
 public class QjsqServiceImpl implements QjsqService {
@@ -25,12 +25,12 @@ public class QjsqServiceImpl implements QjsqService {
     private QjsqMapper qjsqMapper;
     @Autowired
     private UserMapper userMapper;
-
+//    请假
     @Override
     public void addQjsq(Qjsq qjsq) throws Exception {
         qjsqMapper.addQjsq(qjsq);
     }
-
+//    获取请假数据
     @Override
     public List<Qjsq> getQjList(Qjsq qjsq) {
         User u = new User();
@@ -42,12 +42,12 @@ public class QjsqServiceImpl implements QjsqService {
         }
         return qjsqMapper.getQjList(qjsq);
     }
-
+//    查看请假数据
     @Override
     public Qjsq getQj(Qjsq qjsq) {
         return qjsqMapper.getQj(qjsq);
     }
-
+//    审批请假
     @Override
     public void agreeQj(Qjsq qjsq) throws Exception {
         qjsqMapper.agreeQj(qjsq);

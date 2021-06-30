@@ -30,7 +30,7 @@ export const addUser = params => { return axios.get(`${base}/rwxx/addRw`, { para
 //获取请假数据
 export const getQjList = params => { return axios.get(`${base}/qjsq/getQjList`, { params: params }); };
 //请假申请
-export const addQj = params => { return axios.get(`${base}/qjsq/addQjsq`, { params: params }); };
+export const addQj = params => { return axios.post(`${base}/qjsq/addQjsq`, params).then(res => res.data) };
 //请假审批
 export const agreeQj = params => { return axios.get(`${base}/qjsq/agreeQj`, { params: params }); };
 //获取日志
@@ -48,4 +48,4 @@ export const getHys = params => { return axios.get(`${base}/user/getHysList`, { 
 //编辑会议室信息
 export const editHys = params => { return axios.get(`${base}/user/updateHys`, { params: params }); };
 //发送参会短信
-export const sendMessage = params => { return axios.post(`${base}/user/kh`,  params); };
+export const sendMessage = params => { return axios.post(`${base}/user/kh`, params); };
