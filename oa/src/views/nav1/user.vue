@@ -91,6 +91,7 @@
 </template>
 <script>
 	import util from '../../common/js/util'
+	import axios from 'axios'
 	import { getUserList,getHys,editHys,sendMessage } from '../../api/api';
 	export default {
 		data() {
@@ -135,11 +136,11 @@
 			},
 			//获取会议室列表
 			getTableData: function () {
-				// let obj = {
-				// 	hysbh: this.search.hysbh
-				// };
+				let obj = {
+					hysbh: this.filters.name
+				};
 				this.loading = true;
-				getHys().then((res) => {
+				getHys(obj).then((res) => {
 					console.log(res)
 					this.users = res.data;
 					console.log(this.users,'user')
@@ -205,6 +206,14 @@
 					userId: this.noticeForm.userId,
 					time: this.noticeForm.time
 				}
+				let nr="请于"+obj.time+'在会议室:'+obj.hysbh+'参加会议';
+					axios.get('http://47.108.205.96:5001/email?emailto='+'1531756064@qq.com'+'&title=会议通知'+'&body='+nr).then(
+                    response=>{
+                        console.log(response.data)
+                    }).catch(
+                        error=>{
+                            console.log("发送失败")
+                        });
 				// let obj = Object.assign({}, this.noticeForm);
 				sendMessage(obj).then((res) => {
 					this.$message({

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-let base = 'http://localhost:8000'
+let base = 'http://47.108.205.96:5002'
 //let base = 'https://littlepros.mynatapp.cc';
 // let base = 'http://azkz2z.natappfree.cc';
 

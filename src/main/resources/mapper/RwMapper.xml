@@ -6,7 +6,9 @@
 
     <select id="myRw" resultType="com.zjw.oa.entity.Rw" parameterType="com.zjw.oa.entity.Rw">
         select r.rwId,r.rwmc,r.rwms,r.rwTime,r.jsUserId,r.fbUserId,r.jjcd,r.isComplete,
-        u.userName as jsUserName  from  rw r,user u where r.jsUserId=u.userId and jsUserId=#{jsUserId}
+        u1.userName as jsUserName,u2.username as fbUserName
+        from  rw r,user u1,user u2
+        where r.jsUserId=u1.userId and r.fbUserId=u2.userId and (jsUserId= #{jsUserId} or fbUserId= #{fbUserId})
         <if test="rwmc!=null and rwmc!=''">
             and rwmc like concat('%',#{rwmc},'%')
         </if>

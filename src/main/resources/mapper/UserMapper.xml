@@ -24,9 +24,9 @@
     </select>
 
     <select id="getUserList" resultType="com.zjw.oa.entity.User" parameterType="com.zjw.oa.entity.User">
-        SELECT * FROM user where permission=3
+        SELECT * FROM user
         <if test="userName!=null and userName!=''">
-            and userName like concat('%',#{userName},'%')
+            where userName like concat('%',#{userName},'%')
         </if>
     </select>
 
@@ -42,7 +42,10 @@
     </select>
 
     <select id="hysList" parameterType="com.zjw.oa.entity.Hys" resultType="com.zjw.oa.entity.Hys">
-        select * from hys where hysbh = #{hysbh}
+        select * from hys
+        <if test="hysbh!=null and hysbh!=''">
+            where hysbh = #{hysbh}
+        </if>
     </select>
 
     <update id="updateHys" parameterType="com.zjw.oa.entity.Hys">

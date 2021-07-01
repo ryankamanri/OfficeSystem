@@ -112,6 +112,7 @@
 					//type: 'warning'
 				}).then(() => {
 					sessionStorage.removeItem('user');
+					document.getElementById("app").style.backgroundImage= "url('/static/w.jfif')";
 					_this.$router.push('/login');
 				}).catch(() => {
 

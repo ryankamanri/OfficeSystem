@@ -70,6 +70,7 @@ export default {
         item.uploadPercentage = Math.round((e.loaded * 100) / e.total);
       }, false);
       xhr.send(fd);
+      location.reload();
     },
     onDrag: function (e) {
       e.stopPropagation();
@@ -127,7 +128,8 @@ export default {
           type: 'success',
           message: '删除成功!'
         });
-        })
+        });
+        location.reload();
       }).catch(() => {
         this.$message({
           type: 'info',

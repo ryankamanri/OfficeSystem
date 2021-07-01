@@ -172,7 +172,8 @@
 					rwmc: '',
 					jjcd: 1,
 					rwTime: '',
-					rwms: ''
+					rwms: '',
+					fbUserId: ''//++
 				}
 
 			}
@@ -201,6 +202,7 @@
 				user = JSON.parse(user)
 				let para = {
 					jsUserId: user.userId,
+					fbUserId: user.userId,
 					rwmc: this.filters.name
 				};
 				this.listLoading = true;
@@ -209,6 +211,7 @@
 					// this.total = res.data.total;
 					this.users = res;
 					this.listLoading = false;
+					console.log(this.users);
 					//NProgress.done();
 				});
 			},
@@ -219,8 +222,9 @@
 				}).then(() => {
 					this.listLoading = true;
 					//NProgress.start();
-					let para = { id: row.id };
-					removeUser(para).then((res) => {
+					let para = [row.rwId ];
+					console.log(para);
+					batchRemoveUser(para).then((res) => {
 						this.listLoading = false;
 						//NProgress.done();
 						this.$message({
@@ -284,7 +288,10 @@
 							this.addLoading = true;
 							//NProgress.start();
 							let para = Object.assign({}, this.addForm);
+							
 							para.rwTime = (!para.rwTime || para.rwTime == '') ? '' : util.formatDate.format(new Date(para.rwTime), 'yyyy-MM-dd');
+							para.fbUserId = JSON.parse(sessionStorage["user"]).userId;
+							console.log(para);
 							addUser(para).then((res) => {
 								this.addLoading = false;
 								//NProgress.done();
@@ -341,7 +348,8 @@
 			user = JSON.parse(user)
 			user.permission=='1'?this.ifAdmin = true:this.ifAdmin = false
 			this.getUsers();
-			this.getUserData()
+			this.getUserData();
+			console.log(this.users);
 		}
 	}
 

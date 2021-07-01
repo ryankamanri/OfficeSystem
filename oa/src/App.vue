@@ -1,5 +1,5 @@
 <template>
-	<div id="app">
+	<div id="app" style="background:url('/static/w.jfif');">
 		<transition name="fade"
 		            mode="out-in">
 			<router-view></router-view>
@@ -33,6 +33,8 @@ body {
 	top: 0px;
 	bottom: 0px;
 	width: 100%;
+	
+	background-size: 100% 100%;
 }
 
 .el-submenu [class^=fa] {
