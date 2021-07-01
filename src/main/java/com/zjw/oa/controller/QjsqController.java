@@ -18,8 +18,8 @@ import java.util.List;
 /**
  * Description
  *
- * @author dddz97
- * @date 2019-03-21 10:49:24
+ * @author dqy
+ * @date 2021-06-30
  */
 @RestController
 @EnableAutoConfiguration
@@ -35,7 +35,7 @@ public class QjsqController {
      */
     @RequestMapping(value = "/addQjsq")
     @CrossOrigin
-    public JSONObject addQj(Qjsq qjsq) {
+    public JSONObject addQj(@RequestBody Qjsq qjsq) {
         JSONObject jsonObject = JSON.parseObject("{success:true,msg:\"提交成功！\"}");
         qjsq.setQjyy("0".equals(qjsq.getQjyy()) ? "事假" : "病假");
         try {

@@ -6,12 +6,11 @@ import com.zjw.oa.entity.Qjsq;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
-
 /**
  * Description 请假申请MAPPER
  *
- * @author dddz97
- * @date 2019-03-21 10:46:50
+ * @author dqy
+ * @date 2021-06-30
  */
 @Mapper
 public interface QjsqMapper {
