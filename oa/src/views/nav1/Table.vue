@@ -344,6 +344,7 @@
 			},
 		},
 		mounted() {
+			document.getElementById("app").style.backgroundImage= '';
 			var user = sessionStorage.getItem('user');
 			user = JSON.parse(user)
 			user.permission=='1'?this.ifAdmin = true:this.ifAdmin = false

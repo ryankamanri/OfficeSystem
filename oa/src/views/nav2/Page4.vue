@@ -140,6 +140,7 @@ export default {
     }
   },
   mounted: function () {
+    document.getElementById("app").style.backgroundImage= '';
     this.getTableData()
     var user = sessionStorage.getItem('user');
     user = JSON.parse(user)

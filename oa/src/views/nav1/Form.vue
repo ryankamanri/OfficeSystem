@@ -123,6 +123,7 @@ export default {
   },
   // 进入页面内容全部渲染完成后自动引函数 mounted
   mounted() {
+    document.getElementById("app").style.backgroundImage= '';
     this.getTableData();
   },
   methods: {

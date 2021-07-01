@@ -1,5 +1,5 @@
 <template>
-	<div id="app" style="background:url('/static/w.jfif');">
+	<div id="app" style="background:url('/static/w.jfif') no-repeat;background-size:100% 100%;">
 		<transition name="fade"
 		            mode="out-in">
 			<router-view></router-view>

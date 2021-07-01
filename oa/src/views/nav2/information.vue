@@ -112,6 +112,8 @@ export default {
 		}
 	},
 	mounted() {
+		
+    document.getElementById("app").style.backgroundImage= '';
 		this.getGonggao();
 		this.getJindu()
 	}

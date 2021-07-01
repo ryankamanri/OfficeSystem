@@ -129,6 +129,7 @@
 			}
 		},
 		mounted() {
+    document.getElementById("app").style.backgroundImage= '';
 			var user = sessionStorage.getItem('user');
 			user = JSON.parse(user)
 			if (user) {
