@@ -41,8 +41,8 @@
         </if>
     </select>
 
-    <select id="hysList" resultType="com.zjw.oa.entity.Hys">
-        select * from hys
+    <select id="hysList" parameterType="com.zjw.oa.entity.Hys" resultType="com.zjw.oa.entity.Hys">
+        select * from hys where hysbh = #{hysbh}
     </select>
 
     <update id="updateHys" parameterType="com.zjw.oa.entity.Hys">

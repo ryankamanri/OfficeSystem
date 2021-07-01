@@ -90,10 +90,11 @@ export default {
 					message: res.msg,
 					type: 'success'
 				});
+				this.tableData.A
 			})
 			this.addFormVisible = false;
 			this.getGonggao();
-			setTimeout(500,()=>window.location.href = "/#/information");
+			//location.reload();
 			
 		},
 		handleDel(row) {

@@ -39,7 +39,7 @@ public class RwController {
     @RequestMapping(value = "/myRw")
     @ResponseBody
     @CrossOrigin
-    public JSONArray myRw(Rw rw) {
+    public JSONArray myRw(@RequestBody Rw rw) {
         List<Rw> list = rwService.myRw(rw);
         String jsonStr = JsonUtil.serializeDate(list);
         return JSON.parseArray(jsonStr);
@@ -70,6 +70,28 @@ public class RwController {
     public JSONObject delRw(Rw rw) {
         try{
             rwService.delRw(rw);
+        }catch (Exception e){
+            return JSON.parseObject("{success:false,msg:\"删除任务失败！\"}");
+        }
+        return JSON.parseObject("{success:true,msg:\"删除任务成功！\"}");
+    }
+    @RequestMapping(value = "batchremove")
+    @ResponseBody
+    @CrossOrigin
+    public JSONObject batchRemove(@RequestBody String str) {
+        try{
+            System.out.println(str);
+
+            JSONArray array= JSONArray.parseArray(str);
+            Rw rw = new Rw();
+            for(int i = 0;i < array.size();i++)
+            {
+                System.out.println(array.get(i));
+                rw.setRwId((int)array.get(i));
+                rwService.delRw(rw);
+            }
+            //System.out.println(map.get("ids"));
+
         }catch (Exception e){
             return JSON.parseObject("{success:false,msg:\"删除任务失败！\"}");
         }

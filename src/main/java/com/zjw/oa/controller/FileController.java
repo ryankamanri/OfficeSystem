@@ -21,12 +21,12 @@ import java.util.List;
 @RequestMapping(value = "/file")
 public class FileController {
     private static final Logger log = LoggerFactory.getLogger(FileController.class);
-    private static String FILE_PATH = "D:/test/";
+    private static String FILE_PATH = "C:\\Users\\97448\\source\\repos\\Shared\\";
 
     @RequestMapping(value = "/upload")
     @ResponseBody
     @CrossOrigin
-    public String upload(@RequestParam("file") MultipartFile file) {
+    public String upload(@RequestBody MultipartFile file) {
         try {
             if (file.isEmpty()) {
                 return "文件为空";
@@ -145,12 +145,27 @@ public class FileController {
         }
         return "下载失败";
     }
+    @RequestMapping(value = "/deleteFile")
+    @CrossOrigin
+    public String DeleteFile(String fileName)
+    {
+        boolean flag = false;
+        String sPath = FILE_PATH + fileName;
+        File file = new File(sPath);
+        // 路径为文件且不为空则进行删除
+        if (file.isFile() && file.exists())
+        {
+            flag = file.delete();
+        }
+        System.out.println(flag);
+        return String.valueOf(flag);
+    }
 
     @RequestMapping(value = "/fileList")
     @ResponseBody
     @CrossOrigin
     public JSONArray fileList(String fileName) {
-        File file = new File(FILE_PATH);
+         File file = new File(FILE_PATH);
         File[] fileList = file.listFiles();
 
         List<MyFile> list = new ArrayList<>();
@@ -160,11 +175,16 @@ public class FileController {
                 MyFile myFile = new MyFile();
                 myFile.setFileName(fileList[i].getName());
                 myFile.setFileLength(convertFileSize((fileList[i].length())));
+                if(fileName == null || fileName == "")
+                {
+                    list.add(myFile);
+                    continue;
+                }
                 if(!StringUtils.isNullOrEmpty(fileName)&&fileList[i].getName().equals(fileName)){
                     list.add(myFile);
-                    break;
+                    continue;
                 }else{
-                    list.add(myFile);
+                    //list.add(myFile);
                 }
             }
         }

@@ -305,14 +305,14 @@
 			},
 			//批量删除
 			batchRemove: function () {
-				var ids = this.sels.map(item => item.id).toString();
+				var ids = this.sels.map(item => item.rwId);
 				this.$confirm('确认删除选中记录吗？', '提示', {
 					type: 'warning'
 				}).then(() => {
 					this.listLoading = true;
 					//NProgress.start();
-					let para = { ids: ids };
-					batchRemoveUser(para).then((res) => {
+					//let para = { ids:ids };
+					batchRemoveUser(ids).then((res) => {
 						this.listLoading = false;
 						//NProgress.done();
 						this.$message({

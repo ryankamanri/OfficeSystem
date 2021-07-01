@@ -73,7 +73,7 @@ public class UserController {
     @RequestMapping(value = "/userList")
     @ResponseBody
     @CrossOrigin
-    public JSONArray getUserList(@RequestBody(required=false) User user) {
+    public JSONArray getUserList( User user) {
         List<User> list = userService.getUserList(user);
         String jsonStr = JsonUtil.serializeDate(list);
         return JSON.parseArray(jsonStr);
@@ -103,8 +103,8 @@ public class UserController {
     @RequestMapping(value = "/getHysList")
     @ResponseBody
     @CrossOrigin
-    public JSONArray getHysList() {
-        List<Hys> list = userService.hysList();
+    public JSONArray getHysList(Hys hys) {
+        List<Hys> list = userService.hysList(hys);
         String jsonStr = JsonUtil.serializeDate(list);
         return JSON.parseArray(jsonStr);
     }

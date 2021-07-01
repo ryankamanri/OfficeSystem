@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-let base = 'http://47.108.205.96:5002'
+let base = 'http://localhost:8000'
 //let base = 'https://littlepros.mynatapp.cc';
 // let base = 'http://azkz2z.natappfree.cc';
 
@@ -22,7 +22,7 @@ export const getUserListPage = params => { return axios.get(`${base}/user/listpa
 
 export const removeUser = params => { return axios.get(`${base}/user/remove`, { params: params }); };
 
-export const batchRemoveUser = params => { return axios.get(`${base}/user/batchremove`, { params: params }); };
+export const batchRemoveUser = params => { return axios.post(`${base}/rwxx/batchremove`,  params ); };
 //修改任务
 export const editUser = params => { return axios.get(`${base}/rwxx/updateRw`, { params: params }); };
 //新增任务

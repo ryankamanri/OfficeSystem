@@ -1,7 +1,7 @@
 <template>
 	<section>
 		<!--工具条-->
-		<!-- <el-col :span="24" class="toolbar" style="padding-bottom: 0px;">
+		<el-col :span="24" class="toolbar" style="padding-bottom: 0px;">
 			<el-form :inline="true" :model="filters">
 				<el-form-item>
 					<el-input v-model="filters.name" size="small" placeholder="会议室编号"></el-input>
@@ -10,7 +10,7 @@
 					<el-button type="primary" size="small" v-on:click="getTableData">查询</el-button>
 				</el-form-item>
 			</el-form>
-		</el-col> -->
+		</el-col>
 
 		<!--列表-->
 		<template>

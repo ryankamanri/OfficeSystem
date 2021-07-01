@@ -8,7 +8,7 @@
         select r.rwId,r.rwmc,r.rwms,r.rwTime,r.jsUserId,r.fbUserId,r.jjcd,r.isComplete,
         u.userName as jsUserName  from  rw r,user u where r.jsUserId=u.userId and jsUserId=#{jsUserId}
         <if test="rwmc!=null and rwmc!=''">
-            and remc like concat('%',#{rwmc},'%')
+            and rwmc like concat('%',#{rwmc},'%')
         </if>
         <if test="jjcd!=null and jjcd!=''">
             and jjcd =#{jjcd}
